@@ -2,7 +2,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mypi_new1";
+$dbname = "rekapitulasi";
 $conn = mysqli_connect($host,$username,$password,$dbname);
 	/*if ($conn){
 		echo 'Koneksi berhasil';

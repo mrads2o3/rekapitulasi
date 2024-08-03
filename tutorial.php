@@ -3,7 +3,7 @@
     include 'koneksi.php';
     include 'login.php';
 
-    if(isset($_SESSION['npm'])){
+    if(isset($_SESSION['username'])){
 
 ?>
     <!doctype html>
@@ -27,7 +27,7 @@
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="" width="60" height="60" class="d-inline-block align-text-top"></a>
+            <a class="navbar-brand" href="#"><img src="img/logo.jpg" alt="" width="70" height="60" class="d-inline-block align-text-top"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,7 +37,7 @@
                     <a class="nav-link" aria-current="page" href="home.php">Halaman Utama</a>
                 </li>
                 <?php
-                if(isset($_SESSION['npm'])){
+                if(isset($_SESSION['username'])){
                     if($_SESSION['status'] == 'admin'){
                     echo '
                     <li class="nav-item">
@@ -45,15 +45,6 @@
                     </li>';
                     }
                 }?>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Cara Absen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="https://ak-menengah.com/">Web Labamen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="https://praktikum.ak-menengah.com/">Web Praktikum Labamen</a>
-                </li>
             </ul>
             <span class="navbar-text text-center">
                 Laboratorium Akuntansi Menengah <br>
@@ -150,7 +141,7 @@
     </html>
 <?php 
 
-    }elseif(!isset($_SESSION['npm'])){
+    }elseif(!isset($_SESSION['username'])){
         header("location:index.php?notif=belum login");
     }
 
