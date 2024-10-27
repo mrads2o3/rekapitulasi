@@ -11,7 +11,7 @@ include 'koneksi.php';
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
 
-    $query = mysqli_query($conn, "SELECT ROW_NUMBER() OVER (ORDER BY MAX(l.waktu) DESC) as row_num, p.status as status, p.nama as nama, COUNT(CASE WHEN l.shift = 1 THEN 1 END) as shift1, COUNT(CASE WHEN l.shift = 2 THEN 1 END) as shift2, COUNT(*) as total FROM log l JOIN pengguna p ON l.id_pengguna = p.id WHERE waktu LIKE '%-$_POST[bulan]-%' GROUP BY p.username, p.status, p.nama ORDER BY l.waktu DESC;");
+    $query = mysqli_query($conn, "SELECT ROW_NUMBER() OVER (ORDER BY MAX(l.waktu) DESC) as row_num, p.status as status, p.nama as nama, COUNT(CASE WHEN l.shift = 1 THEN 1 END) as shift1, COUNT(CASE WHEN l.shift = 2 THEN 1 END) as shift2, COUNT(*) as total FROM log l JOIN pengguna p ON l.id_pengguna = p.id WHERE waktu LIKE '%-$_POST[bulan]-%' GROUP BY p.username, p.status, p.nama ORDER BY l.waktu DESC");
     $year = date('Y');
     header("Content-type: application/vnd-ms-excel");
     header("Content-Disposition: attachment; filename=Rekap-Absen-".$_POST['bulan']."-".$year.".xls");
@@ -47,11 +47,11 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             <td bgcolor="#42c8f5" style="text-align:center;">
                 SHIFT 2
             </td>
-            <td bgcolor="#42c8f5" style="text-align:center;">
+            <td bgcolor="#FF0000" style="text-align:center;">
                 TOTAl
             </td>
         </tr>
-        <?php
+         <?php
                 while ($data = mysqli_fetch_array($query)) {
                 ?>
         <tr>
@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             </td>
             <td>
                 <?=$data['nama']?>
-            </td>
+            </td>  
             <td>
                 <?=$data['status']?>
             </td>

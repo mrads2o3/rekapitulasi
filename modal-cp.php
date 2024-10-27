@@ -19,7 +19,7 @@
 
                     <div class="form-floating">
                         <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                            name="password" minlength="8" require>
+                            name="password" minlength="8" Required>
                         <label for="floatingPassword">Password Baru</label>
                     </div>
                     <h7>- Password Minimal 8 angka.</h7><br>
@@ -55,7 +55,7 @@
             <div class="modal-body">
                 <div id="text"></div>
                 <form method="post" class="formdel">
-                    <input type="text" class="form-control mb-2" id="del_id" name="id" require hidden>
+                    <input type="text" class="form-control mb-2" id="del_id" name="id" Required hidden>
             </div>
             <div class="modal-footer">
                 <p class="text-danger">PERHATIAN! <br>SEMUA PERUBAHAN YANG DILAKUKAN TIDAK BISA DIBATALKAN.</p>
@@ -154,21 +154,22 @@
                 <form method="post" action="proses.php?type=update">
 
                     <div class="form-floating">
-                        <input type="text" class="form-control mb-2" id="update_user" name="id" require hidden>
+                        <input type="text" class="form-control mb-2" id="update_user" name="id" Required hidden>
                     </div>
                     <div class="form-floating">
                         <input type="text" class="form-control mb-2" id="username" placeholder="Username" name="username"
-                            require>
+                            Required>
                         <label for="floatingInput">username</label>
                     </div>
                     <div class="form-floating">
                         <input type="text" class="form-control mb-2" id="nama" placeholder="Nama" name="nama"
-                            require>
+                            Required>
                         <label for="floatingInput">Nama</label>
                     </div>
                     <div class="mb-4 mt-2 form-floating">
                         <select class="form-select status" aria-label="Default select example" id="status"
-                            placeholder="Status" name="status" require>
+                            placeholder="Status" name="status" Required>
+                            <option value="" disabled selected>Pilih Status</option>
                             <option value='admin'>Admin</option>
                             <option value='dokter'>Dokter</option>
                             <option value='perawat'>Perawat</option>
@@ -227,7 +228,8 @@
                     <img class="mb-4" src="img/logo.png" width="150" height="150">
                     <div class="mb-4 form-floating">
                         <select class="form-select" aria-label="Default select example" id="floatingShift"
-                            placeholder="Shift" name="shift" required>
+                            placeholder="Shift" name="shift" Requiredd>
+                            <option value="" selected disabled>Pilih Jadwal Shift</option>
                             <option value='1'>Pagi : 1</option>
                             <option value='2'>Sore : 2</option>
                         </select>

@@ -19,7 +19,7 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f5f5f5;
+            background-color: 255-255-255;
         }
     </style>
     <!-- Data Tables -->
@@ -30,7 +30,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js">
     </script>
 
-    <title>Rekapitulasi Asisten Labamen</title>
+    <title>Rekapitulasi Klinik dr Sudirman</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" alt="" width="100" height="60"
+            <a class="navbar-brand" href="#"><img src="img/logo.jpg" alt="" width="100" height="60"
                     class="d-inline-block align-text-top"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -222,22 +222,23 @@
                                 <div class="col mt-4">
                                     <form method="post" action="proses.php?type=tdu">
 
-                                        <img class="mb-4" src="img/logo.png" width="150" height="150">
+                                        <img class="mb-4" src="img/logo.jpg" width="300" height="150">
                                         <h4>Tambah Akun</h4>
                                         <hr>
                                         <div class="form-floating mt-4">
                                             <input type="text" class="form-control" id="usernameAcc"
-                                                placeholder="Username" name="username" require>
+                                                placeholder="Username" name="username" Required>
                                             <label for="usernameAcc">username</label>
                                         </div>
                                         <div class="form-floating mt-2">
                                             <input type="text" class="form-control" id="nameAcc"
-                                                placeholder="Nama" name="nama" require>
+                                                placeholder="Nama" name="nama" Required>
                                             <label for="nameAcc">Nama</label>
                                         </div>
                                         <div class="mb-4 mt-2 form-floating">
                                             <select class="form-select" aria-label="Default select example"
-                                                id="statusAcc" placeholder="Status" name="status" require>
+                                                id="statusAcc" placeholder="Status" name="status" Required>
+                                                <option value="" disabled selected>Pilih Status</option>
                                                 <option value='admin'>Admin</option>
                                                 <option value='dokter'>Dokter</option>
                                                 <option value='perawat'>Perawat</option>
@@ -272,7 +273,7 @@
                                                         <div class="input-group">
                                                             <select class="form-select form-control"
                                                                 id="downloadMonth" name="bulan">
-                                                                <option selected>- Bulan -</option>
+                                                                <option disabled selected>- Pilih Bulan -</option>
                                                                 <option value="01">Januari</option>
                                                                 <option value="02">Februari</option>
                                                                 <option value="03">Maret</option>
@@ -394,7 +395,7 @@
 </html>
 <?php 
 
-    }elseif(!isset($_SESSION['username'])){
+    }elseif(!isset($_SESSION['username'])){ 
         header("location:index.php?notif=belum_login");
     }else{
         echo'

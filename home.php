@@ -12,7 +12,7 @@ if(isset($_SESSION[ 'username'])){ ?>
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f5f5f5;
+            background-color: 255-255-255;
         }
     </style>
     <!-- Data Tables -->
@@ -22,7 +22,7 @@ if(isset($_SESSION[ 'username'])){ ?>
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js">
     </script>
-    <title>Rekapitulasi Asisten Labamen</title>
+    <title>Rekapitulasi Klinik dr Sudirman</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@ if(isset($_SESSION[ 'username'])){ ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/logo.png" alt="" width="100" height="60"
+                <img src="img/logo.jpg" alt="" width="100" height="60"
                     class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -65,19 +65,19 @@ if(isset($_SESSION[ 'username'])){ ?>
                             <div class="card mt-2 p-0" style="width: auto;">
                                 <!--<img src="img/user.png" class="card-img-top" width="10" height="20">-->
                                 <div class="card-body text-center">
-                                    <h5 class="card-title"><?php echo $_SESSION['nama']; ?></h5>
+                                    <h5 class="card-title">Selamat Datang, <?php echo $_SESSION['nama']; ?></h5>
                                 </div>
                                 <table class="table align-middle">
                                     <tr>
                                         <td>ID</td>
                                         <td>
-                                            <?php echo $_SESSION['id']; ?>
+                                            <?php echo $_SESSION['id'];?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
                                         <td>
-                                            <?php echo $_SESSION['status']; ?>
+                                            <?php echo $_SESSION['status'];?>
                                         </td>
                                     </tr>
                                 </table>
@@ -101,7 +101,7 @@ if(isset($_SESSION[ 'username'])){ ?>
                                         <div class="col">
                                             <div class="container-fluid">
                                                 <div class="bg-dark p-3 rounded text-center text-light"> <b>
-                                                        <h1>Absen</h1>
+                                                        <h1>Riwayat Absensi</h1>
                                                     </b>
                                                 </div>
                                             </div>
@@ -179,7 +179,6 @@ if(isset($_SESSION[ 'username'])){ ?>
                                                                         '</td>
                                                                                                                                 </tr>';
                                                                 }
-                                                                
                                                                 ?>
                                                             </tbody>
                                                         </table>

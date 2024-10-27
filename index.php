@@ -73,17 +73,17 @@
 
             <div class="form-floating">
                 <input type="text" class="form-control mb-2" id="floatingInput" placeholder="username"
-                    name="username" require>
+                    name="username" Required>
                 <label for="floatingInput">Username</label>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                    name="password"require>
+                    name="password"Required>
                 <label for="floatingPassword">Password</label>
             </div>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">Masuk</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2024</p>
+            <p class="mt-5 mb-3 text-muted">KDS Copyright<sup>&copy;</sup> 2024</p>
         </form>
     </main>
 </body>
