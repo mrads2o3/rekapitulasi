@@ -11,8 +11,30 @@ include 'koneksi.php';
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
 
-    $query = mysqli_query($conn, "SELECT ROW_NUMBER() OVER (ORDER BY MAX(l.waktu) DESC) as row_num, p.status as status, p.nama as nama, COUNT(CASE WHEN l.shift = 1 THEN 1 END) as shift1, COUNT(CASE WHEN l.shift = 2 THEN 1 END) as shift2, COUNT(*) as total FROM log l JOIN pengguna p ON l.id_pengguna = p.id WHERE waktu LIKE '%-$_POST[bulan]-%' GROUP BY p.username, p.status, p.nama ORDER BY l.waktu DESC");
+    // $query = mysqli_query($conn, "SELECT ROW_NUMBER() OVER (ORDER BY MAX(l.waktu) DESC) as row_num, p.status as status, p.nama as nama, COUNT(CASE WHEN l.shift = 1 THEN 1 END) as shift1, COUNT(CASE WHEN l.shift = 2 THEN 1 END) as shift2, COUNT(*) as total FROM log l JOIN pengguna p ON l.id_pengguna = p.id WHERE waktu LIKE '%-$_POST[bulan]-%' GROUP BY p.username, p.status, p.nama ORDER BY l.waktu DESC");
     $year = date('Y');
+    $query = mysqli_query($conn, "
+        SELECT 
+            ROW_NUMBER() OVER (ORDER BY MAX(l.waktu) DESC) AS row_num, 
+            p.status AS status, 
+            p.nama AS nama, 
+            COUNT(CASE WHEN l.shift = 1 THEN 1 END) AS shift1, 
+            COUNT(CASE WHEN l.shift = 2 THEN 1 END) AS shift2, 
+            COUNT(*) AS total 
+        FROM 
+            log l 
+        JOIN 
+            pengguna p 
+        ON 
+            l.id_pengguna = p.id 
+        WHERE 
+            MONTH(l.waktu) = '$_POST[bulan]' 
+            AND YEAR(l.waktu) = '$year'
+        GROUP BY 
+            p.username, p.status, p.nama 
+        ORDER BY 
+            MAX(l.waktu) DESC
+    ");
     header("Content-type: application/vnd-ms-excel");
     header("Content-Disposition: attachment; filename=Rekap-Absen-".$_POST['bulan']."-".$year.".xls");
 
